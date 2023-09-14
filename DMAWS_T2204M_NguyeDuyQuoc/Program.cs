@@ -26,6 +26,9 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add AutoMapper configuration
+builder.Services.AddAutoMapper(typeof(DMAWS_T2204M_NguyeDuyQuoc.MappingProfile));
+
 //Add connection Database
 var connectionString = builder.Configuration.GetConnectionString("practice");
 builder.Services.AddDbContext<DMAWS_T2204M_NguyeDuyQuoc.Entities.DataContext>(
