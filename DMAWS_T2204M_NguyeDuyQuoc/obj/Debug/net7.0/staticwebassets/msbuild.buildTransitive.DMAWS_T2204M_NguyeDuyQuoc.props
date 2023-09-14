@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\DMAWS_T2204M_NguyeDuyQuoc.props" />
+</Project>
