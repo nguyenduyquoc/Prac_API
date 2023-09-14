@@ -16,6 +16,7 @@ namespace DMAWS_T2204M_NguyeDuyQuoc.Entities
 
         public DateTime? ProjectEndDate { get; set; }
 
-        public virtual ICollection<ProjectEmployee> ProjectEmployees { get; set; } = null!;
+        public virtual ICollection<ProjectEmployee> ProjectEmployees { get; set; } = new List<ProjectEmployee>();
+       
     }
 }

@@ -18,6 +18,6 @@ namespace DMAWS_T2204M_NguyeDuyQuoc.Entities
         [StringLength(255)]
         public string EmployeeDepartment { get; set; } = null!;
 
-        public virtual ICollection<ProjectEmployee> ProjectEmployees { get; set; } = null!;
+        public virtual ICollection<ProjectEmployee> ProjectEmployees { get; set; } = new List<ProjectEmployee>();
     }
 }
