@@ -14,6 +14,6 @@ namespace DMAWS_T2204M_NguyeDuyQuoc.DTOs
 
         public DateTime? ProjectEndDate { get; set; }
 
-        public List<ProjectEmployee> ProjectEmployees { get; set; } = null!;
+        public List<ProjectEmployeeDTO> ProjectEmployees { get; set; } = null!;
     }
 }
