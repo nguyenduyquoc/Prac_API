@@ -78,3 +78,5 @@ D:\Pract_API\DMAWS_T2204M_NguyeDuyQuoc\DMAWS_T2204M_NguyeDuyQuoc\obj\Debug\net7.
 D:\Pract_API\DMAWS_T2204M_NguyeDuyQuoc\DMAWS_T2204M_NguyeDuyQuoc\obj\Debug\net7.0\DMAWS_T2204M_NguyeDuyQuoc.pdb
 D:\Pract_API\DMAWS_T2204M_NguyeDuyQuoc\DMAWS_T2204M_NguyeDuyQuoc\obj\Debug\net7.0\DMAWS_T2204M_NguyeDuyQuoc.genruntimeconfig.cache
 D:\Pract_API\DMAWS_T2204M_NguyeDuyQuoc\DMAWS_T2204M_NguyeDuyQuoc\obj\Debug\net7.0\ref\DMAWS_T2204M_NguyeDuyQuoc.dll
+D:\Pract_API\DMAWS_T2204M_NguyeDuyQuoc\DMAWS_T2204M_NguyeDuyQuoc\bin\Debug\net7.0\AutoMapper.dll
+D:\Pract_API\DMAWS_T2204M_NguyeDuyQuoc\DMAWS_T2204M_NguyeDuyQuoc\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
