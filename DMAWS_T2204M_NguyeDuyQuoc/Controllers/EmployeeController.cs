@@ -39,6 +39,27 @@ namespace DMAWS_T2204M_NguyeDuyQuoc.Controllers
             return Ok(employeeDTOs);
         }
 
+        // tim theo id
+        [HttpGet]
+        [Route("get_by_id")]
+        public async Task<ActionResult<EmployeeDTO>> Get(int id)
+        {
+            var employee = await _context.Employees
+                .Include(b => b.ProjectEmployees)
+                    .ThenInclude(c => c.Project)
+                .FirstOrDefaultAsync(e => e.EmployeeId == id);
+
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            //Map
+            var employeeDTO = _mapper.Map<EmployeeDTO>(employee);
+
+            return Ok(employeeDTO);
+        }
+
         // tim theo ten
         [HttpGet]
         [Route("get_by_name")] 
@@ -47,7 +68,8 @@ namespace DMAWS_T2204M_NguyeDuyQuoc.Controllers
             var employee = await _context.Employees
                 .Include(b => b.ProjectEmployees)
                     .ThenInclude(c => c.Project)
-                .FirstOrDefaultAsync(e => e.EmployeeName == name);
+                .Where(f => f.EmployeeName.Contains(name))
+                .ToListAsync();
 
             if (employee == null)
             {
@@ -81,7 +103,7 @@ namespace DMAWS_T2204M_NguyeDuyQuoc.Controllers
 
 
                 var employeeDTO = _mapper.Map<EmployeeDTO>(employee);
-                return CreatedAtAction(nameof(GetByName), new { id = employee.EmployeeId }, employeeDTO);
+                return CreatedAtAction(nameof(Get), new { id = employee.EmployeeId }, employeeDTO);
             }
             return BadRequest();
         }

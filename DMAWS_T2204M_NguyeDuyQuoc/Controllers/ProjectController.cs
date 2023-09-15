@@ -40,6 +40,26 @@ namespace DMAWS_T2204M_NguyeDuyQuoc.Controllers
             return Ok(projectDTOs);
         }
 
+        // tim theo id
+        [HttpGet]
+        [Route("get_by_id")]
+        public async Task<ActionResult<ProjectDTO>> Get(int id)
+        {
+            var project = await _context.Projects
+                .Include(b => b.ProjectEmployees)
+                    .ThenInclude(c => c.Employee)
+                .FirstOrDefaultAsync(e => e.ProjectId == id);
+
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            //Map
+            var projectDTO = _mapper.Map<ProjectDTO>(project);
+
+            return Ok(projectDTO);
+        }
 
         // tim theo ten
         [HttpGet]
@@ -49,7 +69,8 @@ namespace DMAWS_T2204M_NguyeDuyQuoc.Controllers
             var project = await _context.Projects
                 .Include(b => b.ProjectEmployees)
                     .ThenInclude(c => c.Employee)
-                .FirstOrDefaultAsync(e => e.ProjectName == name);
+                .Where(f => f.ProjectName.Contains(name))
+                .ToListAsync();
 
             if (project == null)
             {
